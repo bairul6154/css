@@ -1,0 +1,150 @@
+#ballWrapper {
+            height: 800px;
+            width: 1000px;
+            position: fixed;
+            background-image: linear-gradient(to bottom right, pink, purple);
+        }
+
+        .string {
+            
+            /*This creates the string. I made this a absolute position because so that I don't have to repeat these codes 5 times*/
+            display: inline-block;
+            width: 1.5px;
+            height: 400px;
+            background: black;
+            position: absolute;
+            top: -15px;
+        }
+
+        .ball {
+            /*This part creates the ball. 
+            The border-radius creates the ball shape while the box-shadow creates the shading*/
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            box-shadow: inset -1px -1px 0px rgba(255, 255, 255, 0.3),
+            inset -10px -15px 70px rgba(0, 0, 0, 1),
+            0 0 1px #000;
+            background: rgba(200,200,200,1);
+            
+            /*This part makes the ball attach to the string*/
+            position: absolute;
+            top: 400px;
+            left: -50px;
+            
+            transition: background 2s;
+        }
+        /*this makes it so that when the mouse hovers over the ball, it would change color to red*/
+        .ball:hover {
+            background: rgba(255,0,0,0.5);
+            transition: background 2s;
+        }
+        #ballAndString {
+            position: relative;
+            display: inline-block;
+            left: 300px;
+            animation: ballLeft 1s ease-in 0s infinite;
+        }
+        #ballAndString2 {
+            position: relative;
+            display: inline-block;
+            left: 397px;
+            animation: ballBetween 1s linear 0.5s infinite;
+        }
+        #ballAndString3 {
+            position: relative;
+            display: inline-block;
+            left: 494px;
+            animation: ballBetween 1s linear 0.51s infinite;
+        }
+        #ballAndString4 {
+            position: relative;
+            display: inline-block;
+            left: 591px;
+            animation: ballBetween 1s linear 0.52s infinite;
+        }
+        #ballAndString5 {
+            position: relative;
+            display: inline-block;
+            left: 688px;
+            animation: ballRight 1s ease-in 0.5s infinite;
+        }
+
+        @keyframes ballLeft {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(22deg)
+            }
+            /*this below is the timing when the ball hit another ball*/
+            50% {
+                transform: rotate(-2deg)
+            }
+            /*the rest below is adding some physics by making it shake */
+            65% {
+                transform: rotate(2deg);
+            }
+            80% {
+                transform: rotate(-1deg);
+            }
+            85% {
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes ballRight {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-22deg)
+            }
+            /*this below is the timeing when the ball hit another ball*/
+            50% {
+                transform: rotate(2deg)
+            }
+            /*the rest below is physics*/
+            65% {
+                transform: rotate(-2deg);
+            }
+            80% {
+                transform: rotate(1deg);
+            }
+            85% {
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes ballBetween {
+            /*the bounce from the left most ball*/
+            0% {
+                transform: rotate(0deg);
+            }
+            5% {
+                transform: rotate(-2deg)
+            }
+            20% {
+                transform: rotate(1deg)
+            }
+            30% {
+                transform: rotate(-1deg);
+            }
+            40% {
+                transform: rotate(0deg);
+            }
+            /*the bounces from the right most ball*/
+            50% {
+                transform: rotate(0deg);
+            }
+            55% {
+                transform: rotate(2deg)
+            }
+            70% {
+                transform: rotate(-1deg)
+            }
+            80% {
+                transform: rotate(1deg);
+            }
+            90% {
+                transform: rotate(0deg);
+            }
+        }
